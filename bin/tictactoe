@@ -4,8 +4,14 @@ require_relative '../config/environment'
 
 game_over_prompt = ""
 
+puts "Welcome to tic-tac-toe!"
+
 while game_over_prompt != "exit" do
-  puts "Welcome to tic-tac-toe!"
+  if game_over_prompt == "wargames"
+    cpu_1_win_count = 0
+    cpu_2_win_count = 0
+    100.times do
+      game = Game.new(Players::Computer.new('X'), Players::Computer.new('O'), Board.new)
   puts "How many players will there be? [0, 1, or 2]:"
   player_count = gets.strip.to_i
   if player_count == 0
