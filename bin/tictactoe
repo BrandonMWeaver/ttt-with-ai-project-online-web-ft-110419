@@ -7,6 +7,8 @@ game_over_prompt = ""
 puts "Welcome to tic-tac-toe!"
 
 while game_over_prompt != "exit" do
+  puts "Enter 'wargames' to allow the CPU to play against itself 100 times."
+  puts "Enter anything else to play tic-tac-toe."
   if game_over_prompt == "wargames"
     cpu_1_win_count = 0
     cpu_2_win_count = 0
@@ -40,6 +42,6 @@ while game_over_prompt != "exit" do
     game = Game.new(Players::Human.new('X'), Players::Human.new('O'), Board.new)
     game.play
   end
-  puts "Enter 'exit' to quit.\nEnter 'wargames' to allow the cpu to play itself 100 times.\nEnter anything else to play again:"
+  puts "Enter 'exit' to quit.\nEnter anything else to play again:"
   game_over_prompt = gets.strip
 end
