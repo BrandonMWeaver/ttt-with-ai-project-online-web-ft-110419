@@ -9,7 +9,8 @@ puts "Welcome to tic-tac-toe!"
 while game_over_prompt != "exit" do
   puts "Enter 'wargames' to allow the CPU to play against itself 100 times."
   puts "Enter anything else to play tic-tac-toe."
-  if game_over_prompt == "wargames"
+  welcome_prompt = gets.strip
+  if welcome_prompt == "wargames"
     cpu_1_win_count = 0
     cpu_2_win_count = 0
     draws = 0
