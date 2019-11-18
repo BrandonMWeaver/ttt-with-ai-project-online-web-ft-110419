@@ -10,11 +10,14 @@ while game_over_prompt != "exit" do
   if game_over_prompt == "wargames"
     cpu_1_win_count = 0
     cpu_2_win_count = 0
+    draws = 0
     100.times do
       game = Game.new(Players::Computer.new('X'), Players::Computer.new('O'), Board.new)
       game.play
       if game.won?
         game.winner == 'X' ? cpu_1_win_count += 1 : cpu_2_win_count += 1
+      else
+        draws += 1
       end
     end
     puts "CPU 1 wins: #{cpu_1_win_count}"
