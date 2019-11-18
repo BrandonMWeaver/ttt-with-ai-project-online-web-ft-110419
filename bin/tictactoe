@@ -13,7 +13,13 @@ while game_over_prompt != "exit" do
     100.times do
       game = Game.new(Players::Computer.new('X'), Players::Computer.new('O'), Board.new)
       game.play
-      
+      if game.won?
+        game.winner == 'X' ? cpu_1_win_count += 1 : cpu_2_win_count += 1
+      end
+    end
+    puts "CPU 1 wins: #{cpu_1_win_count}"
+    puts "CPU 2 wins: #{cpu_2_win_count}"
+  end
   puts "How many players will there be? [0, 1, or 2]:"
   player_count = gets.strip.to_i
   if player_count == 0
