@@ -33,7 +33,7 @@ while game_over_prompt != "exit" do
     game = Game.new(Players::Computer.new('X'), Players::Computer.new('O'), Board.new)
     game.play
   elsif player_count == 1
-    puts "Which player will go first ['X']? [1 [human] or 2 [cpu]]:"
+    puts "\nWhich player will go first ['X']? [1 [human] or 2 [cpu]]:"
     human = gets.strip.to_i == 1 ? true : false
     player_1 = human ? Players::Human.new('X') : Players::Computer.new('X')
     player_2 = human ? Players::Computer.new('O') : Players::Human.new('O')
