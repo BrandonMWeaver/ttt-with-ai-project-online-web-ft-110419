@@ -1,3 +1,27 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+game_over_prompt = ""
+
+while game_over_prompt != "exit" do
+  puts "Welcome to tic-tac-toe!"
+  puts "How many players will there be? [0, 1, or 2]:"
+  player_count = gets.strip.to_i
+  puts "Which player will go first ['X']? [1 or 2]:"
+  human = gets.strip.to_i == 1 ? true : false
+  if player_count == 0
+    game = Game.new(Players::Computer.new('X'), Players::Computer.new('O'), Board.new)
+    game.play
+  elsif player_count == 1
+    player_1 = human ? Players::Human.new('X') : Players::Computer.new('X')
+    player_2 = human ? Players::Computer.new('O') : Players::Human.new('O')
+    game = Game.new(player_1, player_2, Board.new)
+    game.play
+  else
+    game = Game.new(Players::Human.new('X'), Players::Human.new('O'), Board.new)
+    game.play
+  end
+  puts "Enter 'exit' to quit.\nEnter anything else to play again:"
+  game_over_prompt = gets.strip
+end
